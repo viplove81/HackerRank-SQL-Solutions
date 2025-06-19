@@ -1,0 +1,26 @@
+
+
+===============SQL Server===============
+select top 1 city,len(city) from station 
+order by len(city), city;
+    
+select top 1 city,len(city) from station
+order by len(city)desc, city;
+
+============MySQL & DB2================
+select city,length(city) from station 
+order by length(city), city limit 1;
+    
+select city,length(city) from station
+order by length(city)desc, city limit 1;
+
+================ORACLE=================
+select city,length(city)
+from(select city,length(city) from station 
+order by length(city)asc, city asc)
+where rownum=1;
+
+select city,length(city)
+from(select city,length(city) from station 
+order by length(city)desc, city asc)
+where rownum=1;
